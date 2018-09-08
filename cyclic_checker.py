@@ -14,13 +14,13 @@ class Node:
         self.next_node = None
 
 
-def cycle_checker(node):
+def cycle_checker(head):
     """Check if the Singly Linked List is cyclic.
 
     Returns boolean value based on the result
     """
-    marker_1 = node
-    marker_2 = node
+    marker_1 = head
+    marker_2 = head
     flag = False
 
     while marker_2 != None and marker_2.next_node != None:

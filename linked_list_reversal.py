@@ -1,5 +1,5 @@
 """
-Implementation of n to last node finder.
+Implementation of Linked List reversal.
 """
 
 # Author: Nikhil Xavier <nikhilxavier@yahoo.com>
@@ -14,21 +14,19 @@ class Node:
         self.next_node = None
 
 
-def n2last_node(n, head):
-    """Find n to last node in Linked List.
+def reverse_linked_list(head):
+    """Reverse linked list.
 
-    Returns n from last node.
+    Returns reversed linked list head.
     """
-    first_node = head
-    second_node = head
+    current_node = head
+    previous_node = None
+    next_node = None
 
-    for _ in range(n):
-        if not second_node:
-            raise LookupError("Error: Insufficient nodes in linked list")
-        second_node = second_node.next_node
+    while current_node:
+        next_node = current_node.next_node
+        current_node.next_node = previous_node
+        previous_node = current_node
+        current_node = next_node
 
-    while second_node.next_node:
-        second_node = second_node.next_node
-        first_node = first_node.next_node
-
-    return first_node
+    return previous_node
